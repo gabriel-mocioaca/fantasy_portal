@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-FantasyPortal-126B8DC9-BC3E-4353-999B-BE0E30A1B48C</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.2.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.2.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FantasyPortal.ApplicationLogic\FantasyPortal.ApplicationLogic.csproj" />
+    <ProjectReference Include="..\FantasyPortal.DataAccess\FantasyPortal.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
