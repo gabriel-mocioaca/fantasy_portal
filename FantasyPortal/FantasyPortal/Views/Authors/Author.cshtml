@@ -1,0 +1,15 @@
+﻿@model AuthorViewModel
+@{
+  ViewData["Title"] = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+<h3>@Model.Popularity</h3>
+<p>@Model.Description</p>
+<ul>
+  @foreach (var book in Model.Books)
+  {
+    <li><a asp-area="" asp-controller="Books" asp-action="Book" asp-route-id="@book.BookId">@book.Name</a></li>
+  }
+</ul>
+

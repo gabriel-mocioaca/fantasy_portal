@@ -25,7 +25,7 @@ namespace FantasyPortal.Controllers
         Name = $"{s.Name}",
         Region = s.Region,
         Books = publisherRepository.GetBooksByPublisherId(s.PublisherId),
-      }); ;
+      }); 
       return View(model);
     }
 

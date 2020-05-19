@@ -17,5 +17,17 @@ namespace FantasyPortal.DataAccess.Repositories
     {
       throw new NotImplementedException();
     }
+
+    public Author GetAuthorByAuthorId(string authorId)
+    {
+      var result = dbContext.Authors.SingleOrDefault(author => author.AuthorId == authorId);
+      return result;
+    }
+
+    public IEnumerable<Book> GetBooksByAuthorId(string authorId)
+    {
+      var result = dbContext.Books.Where(book => book.BookAuthors.Any(author => author.AuthorId == authorId));
+      return result;
+    }
   }
 }

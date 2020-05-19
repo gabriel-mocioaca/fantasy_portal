@@ -9,5 +9,6 @@ namespace FantasyPortal.ApplicationLogic.Abstractions
   {
     Author GetRandomAuthor();
     Author GetAuthorByAuthorId(string authorId);
+    IEnumerable<Book> GetBooksByAuthorId(string authorId);
   }
 }

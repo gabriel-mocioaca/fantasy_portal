@@ -1,7 +1,11 @@
-﻿
+﻿@model IEnumerable<AuthorViewModel>
 @{
-    ViewData["Title"] = "Authors";
+  ViewData["Title"] = "All Authors";
 }
 
-<h2>Authors</h2>
+@foreach (var item in Model)
+{
+  <h2><a asp-area="" asp-controller="Authors" asp-action="Author" asp-route-id="@item.AuthorId">@item.Name</a></h2>
+  <h3>@item.Popularity</h3>
 
+}
