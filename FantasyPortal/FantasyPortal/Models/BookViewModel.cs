@@ -7,7 +7,7 @@ namespace FantasyPortal.Models
 {
   public class BookViewModel
   {
-    public int BookId { get; set; }
+    public string BookId { get; set; }
     public string Name { get; set; }
     public int WordCount { get; set; }
     public string Image { get; set; }

@@ -6,8 +6,9 @@ namespace FantasyPortal.ApplicationLogic.Data
 {
   public class Subgenre
   {
-    public int SubgenreId { get; set; }
-    public int Name { get; set; }
-    public int Description { get; set; }
+    public string SubgenreId { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public ICollection<BookSubgenre> BookSubgenres { get; set; }
   }
 }

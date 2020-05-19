@@ -6,6 +6,7 @@ namespace FantasyPortal.ApplicationLogic.Data
 {
   public class User
   { 
-    public int UserId { get; set; }
+    public string UserId { get; set; }
+    public ICollection<UserBook> UserBooks { get; set; }
   }
 }

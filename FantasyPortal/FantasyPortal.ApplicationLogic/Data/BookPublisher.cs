@@ -6,9 +6,9 @@ namespace FantasyPortal.ApplicationLogic.Data
 {
   public class BookPublisher
   {
-    public int BookId { get; set; }
-    public int PublisherId { get; set; }
-    public Book Books { get; set; }
-    public Publisher Publishers { get; set; }
+    public string BookId { get; set; }
+    public string PublisherId { get; set; }
+    public Book Book { get; set; }
+    public Publisher Publisher { get; set; }
   }
 }

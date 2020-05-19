@@ -6,10 +6,10 @@ namespace FantasyPortal.ApplicationLogic.Data
 {
   public class UserBook
   {
-    public int UserId { get; set; }
-    public int BookId { get; set; }
-    public User Users { get; set; }
-    public Book Books { get; set; }
+    public string UserId { get; set; }
+    public string BookId { get; set; }
+    public User User { get; set; }
+    public Book Book { get; set; }
     public string Progress { get; set; }
     public int Mark { get; set; }
     public string Review { get; set; }
