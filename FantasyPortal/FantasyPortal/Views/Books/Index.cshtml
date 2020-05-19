@@ -1,7 +1,13 @@
-﻿@{
-  ViewData["Title"] = "Book List";
+﻿@model IEnumerable<BookViewModel>
+@{
+  ViewData["Title"] = "All Books";
 }
 
 <h2>My book list</h2>
 
 <p>Hello from our View Template!</p>
+
+@foreach (var item in Model)
+{
+  <h2>@item.Name</h2>
+}

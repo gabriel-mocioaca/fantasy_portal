@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using FantasyPortal.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FantasyPortal.ApplicationLogic.Abstractions;
+using FantasyPortal.DataAccess;
 
 namespace FantasyPortal
 {
@@ -36,10 +38,13 @@ namespace FantasyPortal
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"))); 
+            services.AddDbContext<FantasyPortalDbContext>(options =>
+                options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddTransient<IBookRepository, BookRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

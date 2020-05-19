@@ -3,17 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using FantasyPortal.ApplicationLogic.Abstractions;
+using FantasyPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FantasyPortal.Controllers
 {
   public class BooksController : Controller
   {
-    public IActionResult Index()
+    private IBookRepository bookRepository;
+
+    public BooksController(IBookRepository bookRepository)
     {
-      return View();
+      this.bookRepository = bookRepository;
     }
 
+    public IActionResult Index()
+    {
+      IEnumerable<BookViewModel> model = bookRepository.GetAll().Select(s => new BookViewModel
+      {
+        BookId = s.BookId,
+        Name = $"{s.Name}",
+        Image = s.Image,
+        Synopsis = s.Synopsis,
+        Rating = s.Rating,
+      });
+      return View(model);
+    }
+
+    [HttpGet]
     public IActionResult Details(int id)
     {
       ViewData["Message"] = "Book" + id.ToString();
