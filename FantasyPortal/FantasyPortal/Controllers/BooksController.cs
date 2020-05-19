@@ -28,16 +28,25 @@ namespace FantasyPortal.Controllers
         Image = s.Image,
         Synopsis = s.Synopsis,
         Rating = s.Rating,
-      }); ;
+      });
       return View(model);
     }
 
     [HttpGet]
-    public IActionResult Details(int id)
+    public IActionResult Book(string id)
     {
-      ViewData["Message"] = "Book" + id.ToString();
+      var book = bookRepository.GetBookByBookId(id);
+      BookViewModel model = new BookViewModel
+      {
+        BookId = book.BookId,
+        Name = $"{book.Name}",
+        Authors = bookRepository.GetAuthorsByBookId(book.BookId),
+        Image = book.Image,
+        Synopsis = book.Synopsis,
+        Rating = book.Rating,
+      };
 
-      return View();
+      return View(model);
     }
   }
 }

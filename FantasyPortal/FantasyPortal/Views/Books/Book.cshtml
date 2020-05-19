@@ -1,0 +1,14 @@
+﻿@model BookViewModel
+@{
+  ViewData["Title"] = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+<h3>Authors:</h3>
+<ul>
+  @foreach (var auth in Model.Authors)
+  {
+    <li>@auth.Name</li>
+  }
+</ul>
+<p> @Model.Synopsis </p>
