@@ -15,7 +15,14 @@
 <ul>
   @foreach (var subg in Model.Subgenres)
   {
-  <li><a asp-area="" asp-controller="Subgenres" asp-action="Subgenre" asp-route-id="@subg.SubgenreId"/>@subg.Name</li>
+    <li><a asp-area="" asp-controller="Subgenres" asp-action="Subgenre" asp-route-id="@subg.SubgenreId">@subg.Name</a></li>
+  }
+</ul>
+<h3>Publishers:</h3>
+<ul>
+  @foreach (var publ in Model.Publishers)
+  {
+    <li><a asp-area="" asp-controller="Publishers" asp-action="Publisher" asp-route-id="@publ.PublisherId">@publ.Name</a></li>
   }
 </ul>
 

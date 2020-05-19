@@ -1,7 +1,12 @@
-﻿
+﻿@model IEnumerable<PublisherViewModel>
 @{
-    ViewData["Title"] = "Publishers";
+  ViewData["Title"] = "All Publishers";
 }
 
-<h2>Publishers</h2>
+@foreach (var item in Model)
+{
+  <h2><a asp-area="" asp-controller="Publishers" asp-action="Publisher" asp-route-id="@item.PublisherId">@item.Name</a></h2>
+  <h3>@item.Region</h3>
+
+}
 

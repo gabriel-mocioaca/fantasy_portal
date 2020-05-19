@@ -42,6 +42,7 @@ namespace FantasyPortal.Controllers
         Name = $"{book.Name}",
         Authors = bookRepository.GetAuthorsByBookId(book.BookId),
         Subgenres = bookRepository.GetSubgenresByBookId(book.BookId),
+        Publishers = bookRepository.GetPublishersByBookId(book.BookId),
         Image = book.Image,
         Synopsis = book.Synopsis,
         Rating = book.Rating,
