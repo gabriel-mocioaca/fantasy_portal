@@ -12,5 +12,6 @@ namespace FantasyPortal.ApplicationLogic.Data
     public string Image { get; set; }
     public string Synopsis { get; set; }
     public float Rating { get; set; }
+    public ICollection<Author> Authors { get; set; }
   }
 }
