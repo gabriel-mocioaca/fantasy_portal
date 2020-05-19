@@ -49,7 +49,7 @@ namespace FantasyPortal
       services.AddTransient<IBookRepository, BookRepository>();
       services.AddTransient<IAuthorRepository, AuthorRepository>();
       services.AddTransient<IPublisherRepository, PublisherRepository>();
-
+      services.AddTransient<ISubgenreRepository, SubgenreRepository>();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 

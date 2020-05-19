@@ -11,4 +11,11 @@
     <li>@auth.Name</li>
   }
 </ul>
-<p> @Model.Synopsis </p>
+<h3>Subgenres:</h3>
+<ul>
+  @foreach (var subg in Model.Subgenres)
+  {
+  <li><a asp-area="" asp-controller="Subgenres" asp-action="Subgenre" asp-route-id="@subg.SubgenreId"/>@subg.Name</li>
+  }
+</ul>
+

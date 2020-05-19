@@ -12,7 +12,6 @@ namespace FantasyPortal.DataAccess.Repositories
   {
     public BookRepository(FantasyPortalDbContext dbContext) : base(dbContext)
     {
-
     }
 
     public Book GetBookByBookId(string bookId)
