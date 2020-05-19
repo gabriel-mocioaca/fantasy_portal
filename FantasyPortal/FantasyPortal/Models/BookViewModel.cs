@@ -11,6 +11,8 @@ namespace FantasyPortal.Models
     public string BookId { get; set; }
     public string Name { get; set; }
     public IEnumerable<Author> Authors { get; set; }
+    public IEnumerable<Subgenre> Subgenres { get; set; }
+    public IEnumerable<Publisher> Publishers { get; set; }
     public int WordCount { get; set; }
     public string Image { get; set; }
     public string Synopsis { get; set; }
