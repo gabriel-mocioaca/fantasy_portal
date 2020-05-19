@@ -33,7 +33,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Author");
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.Book", b =>
@@ -53,7 +53,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasKey("BookId");
 
-                    b.ToTable("Book");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.BookAuthor", b =>
@@ -66,7 +66,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthor");
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.BookPublisher", b =>
@@ -79,7 +79,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("BookPublisher");
+                    b.ToTable("BookPublishers");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.BookSubgenre", b =>
@@ -92,7 +92,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasIndex("SubgenreId");
 
-                    b.ToTable("BookSubgenre");
+                    b.ToTable("BookSubgenres");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.Publisher", b =>
@@ -106,7 +106,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publisher");
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.Subgenre", b =>
@@ -120,7 +120,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasKey("SubgenreId");
 
-                    b.ToTable("Subgenre");
+                    b.ToTable("Subgenres");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.User", b =>
@@ -130,7 +130,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.UserBook", b =>
@@ -149,7 +149,7 @@ namespace FantasyPortal.DataAccess.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("UserBook");
+                    b.ToTable("UserBooks");
                 });
 
             modelBuilder.Entity("FantasyPortal.ApplicationLogic.Data.BookAuthor", b =>

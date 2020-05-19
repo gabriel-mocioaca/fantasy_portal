@@ -10,4 +10,8 @@
 @foreach (var item in Model)
 {
   <h2>@item.Name</h2>
+  @foreach(var auth in item.Authors)
+  {
+    <li>@auth.Name</li>
+  }
 }

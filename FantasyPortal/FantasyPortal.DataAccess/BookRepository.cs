@@ -1,7 +1,9 @@
 ﻿using FantasyPortal.ApplicationLogic.Abstractions;
 using FantasyPortal.ApplicationLogic.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FantasyPortal.DataAccess
@@ -12,5 +14,12 @@ namespace FantasyPortal.DataAccess
     {
 
     }
+
+    public IEnumerable<Author> GetAuthorsByBookId(string bookId)
+    {
+      var result = dbContext.Authors.Where(auth => auth.BookAuthors.Any(book => book.BookId == bookId));
+      return result;
+    }
+
   }
 }

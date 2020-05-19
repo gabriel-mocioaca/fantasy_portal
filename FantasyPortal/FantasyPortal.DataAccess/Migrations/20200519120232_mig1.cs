@@ -7,7 +7,7 @@ namespace FantasyPortal.DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Author",
+                name: "Authors",
                 columns: table => new
                 {
                     AuthorId = table.Column<string>(nullable: false),
@@ -18,11 +18,11 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Author", x => x.AuthorId);
+                    table.PrimaryKey("PK_Authors", x => x.AuthorId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Book",
+                name: "Books",
                 columns: table => new
                 {
                     BookId = table.Column<string>(nullable: false),
@@ -34,11 +34,11 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.BookId);
+                    table.PrimaryKey("PK_Books", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Publisher",
+                name: "Publishers",
                 columns: table => new
                 {
                     PublisherId = table.Column<string>(nullable: false),
@@ -47,11 +47,11 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Publisher", x => x.PublisherId);
+                    table.PrimaryKey("PK_Publishers", x => x.PublisherId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Subgenre",
+                name: "Subgenres",
                 columns: table => new
                 {
                     SubgenreId = table.Column<string>(nullable: false),
@@ -60,22 +60,22 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subgenre", x => x.SubgenreId);
+                    table.PrimaryKey("PK_Subgenres", x => x.SubgenreId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookAuthor",
+                name: "BookAuthors",
                 columns: table => new
                 {
                     BookId = table.Column<string>(nullable: false),
@@ -83,23 +83,23 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookAuthor", x => new { x.BookId, x.AuthorId });
+                    table.PrimaryKey("PK_BookAuthors", x => new { x.BookId, x.AuthorId });
                     table.ForeignKey(
-                        name: "FK_BookAuthor_Author_AuthorId",
+                        name: "FK_BookAuthors_Authors_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "Author",
+                        principalTable: "Authors",
                         principalColumn: "AuthorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookAuthor_Book_BookId",
+                        name: "FK_BookAuthors_Books_BookId",
                         column: x => x.BookId,
-                        principalTable: "Book",
+                        principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookPublisher",
+                name: "BookPublishers",
                 columns: table => new
                 {
                     BookId = table.Column<string>(nullable: false),
@@ -107,23 +107,23 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookPublisher", x => new { x.BookId, x.PublisherId });
+                    table.PrimaryKey("PK_BookPublishers", x => new { x.BookId, x.PublisherId });
                     table.ForeignKey(
-                        name: "FK_BookPublisher_Book_BookId",
+                        name: "FK_BookPublishers_Books_BookId",
                         column: x => x.BookId,
-                        principalTable: "Book",
+                        principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookPublisher_Publisher_PublisherId",
+                        name: "FK_BookPublishers_Publishers_PublisherId",
                         column: x => x.PublisherId,
-                        principalTable: "Publisher",
+                        principalTable: "Publishers",
                         principalColumn: "PublisherId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookSubgenre",
+                name: "BookSubgenres",
                 columns: table => new
                 {
                     BookId = table.Column<string>(nullable: false),
@@ -131,23 +131,23 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookSubgenre", x => new { x.BookId, x.SubgenreId });
+                    table.PrimaryKey("PK_BookSubgenres", x => new { x.BookId, x.SubgenreId });
                     table.ForeignKey(
-                        name: "FK_BookSubgenre_Book_BookId",
+                        name: "FK_BookSubgenres_Books_BookId",
                         column: x => x.BookId,
-                        principalTable: "Book",
+                        principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookSubgenre_Subgenre_SubgenreId",
+                        name: "FK_BookSubgenres_Subgenres_SubgenreId",
                         column: x => x.SubgenreId,
-                        principalTable: "Subgenre",
+                        principalTable: "Subgenres",
                         principalColumn: "SubgenreId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserBook",
+                name: "UserBooks",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -158,70 +158,70 @@ namespace FantasyPortal.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserBook", x => new { x.UserId, x.BookId });
+                    table.PrimaryKey("PK_UserBooks", x => new { x.UserId, x.BookId });
                     table.ForeignKey(
-                        name: "FK_UserBook_User_BookId",
+                        name: "FK_UserBooks_Users_BookId",
                         column: x => x.BookId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserBook_Book_UserId",
+                        name: "FK_UserBooks_Books_UserId",
                         column: x => x.UserId,
-                        principalTable: "Book",
+                        principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookAuthor_AuthorId",
-                table: "BookAuthor",
+                name: "IX_BookAuthors_AuthorId",
+                table: "BookAuthors",
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookPublisher_PublisherId",
-                table: "BookPublisher",
+                name: "IX_BookPublishers_PublisherId",
+                table: "BookPublishers",
                 column: "PublisherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookSubgenre_SubgenreId",
-                table: "BookSubgenre",
+                name: "IX_BookSubgenres_SubgenreId",
+                table: "BookSubgenres",
                 column: "SubgenreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserBook_BookId",
-                table: "UserBook",
+                name: "IX_UserBooks_BookId",
+                table: "UserBooks",
                 column: "BookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BookAuthor");
+                name: "BookAuthors");
 
             migrationBuilder.DropTable(
-                name: "BookPublisher");
+                name: "BookPublishers");
 
             migrationBuilder.DropTable(
-                name: "BookSubgenre");
+                name: "BookSubgenres");
 
             migrationBuilder.DropTable(
-                name: "UserBook");
+                name: "UserBooks");
 
             migrationBuilder.DropTable(
-                name: "Author");
+                name: "Authors");
 
             migrationBuilder.DropTable(
-                name: "Publisher");
+                name: "Publishers");
 
             migrationBuilder.DropTable(
-                name: "Subgenre");
+                name: "Subgenres");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "Books");
         }
     }
 }

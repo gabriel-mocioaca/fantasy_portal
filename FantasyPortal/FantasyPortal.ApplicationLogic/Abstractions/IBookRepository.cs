@@ -7,5 +7,7 @@ namespace FantasyPortal.ApplicationLogic.Abstractions
 {
   public interface IBookRepository : IRepository<Book>
   {
+    IEnumerable<Author> GetAuthorsByBookId(string bookId);
+    IEnumerable<Publisher> GetPublishersByBookId(string bookId);
   }
 }
