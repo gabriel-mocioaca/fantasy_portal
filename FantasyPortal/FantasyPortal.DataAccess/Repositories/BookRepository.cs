@@ -15,6 +15,12 @@ namespace FantasyPortal.DataAccess.Repositories
 
     }
 
+    public Book GetBookByBookId(string bookId)
+    {
+      var result = dbContext.Books.SingleOrDefault(book => book.BookId == bookId);
+      return result;
+    }
+
     public IEnumerable<Author> GetAuthorsByBookId(string bookId)
     {
       var result = dbContext.Authors.Where(auth => auth.BookAuthors.Any(book => book.BookId == bookId));
