@@ -18,7 +18,7 @@ namespace FantasyPortal.Controllers
       this.bookRepository = bookRepository;
     }
 
-    public IActionResult Index()
+    public IActionResult Books()
     {
       IEnumerable<BookViewModel> model = bookRepository.GetAll().Select(s => new BookViewModel
       {
