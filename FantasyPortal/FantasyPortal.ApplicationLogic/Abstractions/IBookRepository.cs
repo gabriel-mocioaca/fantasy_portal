@@ -9,5 +9,6 @@ namespace FantasyPortal.ApplicationLogic.Abstractions
   {
     IEnumerable<Author> GetAuthorsByBookId(string bookId);
     IEnumerable<Publisher> GetPublishersByBookId(string bookId);
+    IEnumerable<Subgenre> GetSubgenresByBookId(string bookId);
   }
 }
