@@ -7,6 +7,7 @@ namespace FantasyPortal.ApplicationLogic.Abstractions
 {
   public interface IAuthorRepository : IRepository<Author>
   {
-    
+    Author GetRandomAuthor();
+    Author GetAuthorByAuthorId(string authorId);
   }
 }

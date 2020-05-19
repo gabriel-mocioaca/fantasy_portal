@@ -2,6 +2,7 @@
 using FantasyPortal.ApplicationLogic.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FantasyPortal.DataAccess.Repositories
@@ -10,6 +11,11 @@ namespace FantasyPortal.DataAccess.Repositories
   {
     public AuthorRepository(FantasyPortalDbContext dbContext) : base(dbContext)
     {
+    }
+
+    public Author GetRandomAuthor()
+    {
+      throw new NotImplementedException();
     }
   }
 }

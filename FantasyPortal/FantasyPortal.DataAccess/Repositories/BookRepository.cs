@@ -13,7 +13,10 @@ namespace FantasyPortal.DataAccess.Repositories
     public BookRepository(FantasyPortalDbContext dbContext) : base(dbContext)
     {
     }
-
+    public Book GetRandomBook()
+    {
+      throw new NotImplementedException();
+    }
     public Book GetBookByBookId(string bookId)
     {
       var result = dbContext.Books.SingleOrDefault(book => book.BookId == bookId);
@@ -37,5 +40,7 @@ namespace FantasyPortal.DataAccess.Repositories
       var result = dbContext.Subgenres.Where(auth => auth.BookSubgenres.Any(book => book.BookId == bookId));
       return result;
     }
+
+    
   }
 }
