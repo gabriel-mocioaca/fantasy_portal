@@ -1,0 +1,18 @@
+﻿@model IEnumerable<UserBookViewModel>
+@{
+    ViewData["Title"] = "BookList";
+}
+
+<h2>My Book List</h2>
+
+<ol>
+  @foreach(var userbook in Model)
+  {
+  <li>
+    @userbook.Book.Name
+    @userbook.Progress
+    <a class="active" asp-area="" asp-controller="BookList" asp-action="BookListItemEdit" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Edit</a>
+  </li>
+  }
+</ol>
+

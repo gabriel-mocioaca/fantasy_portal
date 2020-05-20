@@ -1,0 +1,18 @@
+﻿@model BookListItemEditViewModel
+@{
+    ViewData["Title"] = "Edit ";
+}
+
+
+  <form method="post" asp-controller="BookList" asp-action="BookListItemEdit">
+    <div class="form-group">
+      <input asp-for="@Model.UserId" hidden />
+      <input asp-for="@Model.BookId" hidden />
+      <label asp-for="@Model.Progress"></label>
+      <select asp-for="@Model.Progress" asp-items="@Model.ProgressList"></select>
+      <input asp-for="@Model.Mark" hidden />
+      <input asp-for="@Model.Review" hidden />
+
+    </div>
+    <button type="submit" class="btn blue" value="BookListItemEdit">Save</button>
+  </form>

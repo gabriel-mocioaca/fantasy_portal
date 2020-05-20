@@ -46,10 +46,12 @@ namespace FantasyPortal
       services.AddDefaultIdentity<IdentityUser>()
         .AddEntityFrameworkStores<ApplicationDbContext>();
 
+      services.AddTransient<IUserRepository, UserRepository>();
       services.AddTransient<IBookRepository, BookRepository>();
       services.AddTransient<IAuthorRepository, AuthorRepository>();
       services.AddTransient<IPublisherRepository, PublisherRepository>();
       services.AddTransient<ISubgenreRepository, SubgenreRepository>();
+      services.AddTransient<IUserBookRepository, UserBookRepository>();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
