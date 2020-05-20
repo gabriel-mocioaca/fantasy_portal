@@ -10,9 +10,9 @@
       <input asp-for="@Model.BookId" hidden />
       <label asp-for="@Model.Progress"></label>
       <select asp-for="@Model.Progress" asp-items="@Model.ProgressList"></select>
-      <input asp-for="@Model.Mark" hidden />
+      <label asp-for="@Model.Mark"></label>
+      <select asp-for="@Model.Mark" asp-items="@Model.MarkList"></select>
       <input asp-for="@Model.Review" hidden />
-
     </div>
     <button type="submit" class="btn blue" value="BookListItemEdit">Save</button>
   </form>

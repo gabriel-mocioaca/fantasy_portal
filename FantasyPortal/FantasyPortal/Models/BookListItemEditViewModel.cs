@@ -20,5 +20,14 @@ namespace FantasyPortal.Models
         new SelectListItem { Value = "Completed", Text = "Completed" },
         new SelectListItem { Value = "To Read", Text = "To Read"  },
       };
+    public List<SelectListItem> MarkList { get; set; } = new List<SelectListItem>
+      {
+        new SelectListItem { Value = "0", Text = "0" },
+        new SelectListItem { Value = "1", Text = "1" },
+        new SelectListItem { Value = "2", Text = "2"  },
+        new SelectListItem { Value = "3", Text = "3" },
+        new SelectListItem { Value = "4", Text = "4" },
+        new SelectListItem { Value = "5", Text = "5"  },
+      };
   }
 }
