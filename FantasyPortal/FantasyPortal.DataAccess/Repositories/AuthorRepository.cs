@@ -15,7 +15,13 @@ namespace FantasyPortal.DataAccess.Repositories
 
     public Author GetRandomAuthor()
     {
-      throw new NotImplementedException();
+      int total = dbContext.Authors.Count();
+      Random r = new Random();
+      int offset = r.Next(0, total);
+
+      var result = dbContext.Authors.Skip(offset).FirstOrDefault();
+
+      return result;
     }
 
     public Author GetAuthorByAuthorId(string authorId)

@@ -15,8 +15,15 @@ namespace FantasyPortal.DataAccess.Repositories
     }
     public Book GetRandomBook()
     {
-      throw new NotImplementedException();
+      int total = dbContext.Books.Count();
+      Random r = new Random();
+      int offset = r.Next(0, total);
+
+      var result = dbContext.Books.Skip(offset).FirstOrDefault();
+
+      return result;
     }
+
     public Book GetBookByBookId(string bookId)
     {
       var result = dbContext.Books.SingleOrDefault(book => book.BookId == bookId);
