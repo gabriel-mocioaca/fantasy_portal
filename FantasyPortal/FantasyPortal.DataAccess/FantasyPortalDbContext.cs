@@ -44,8 +44,8 @@ namespace FantasyPortal.DataAccess
       modelBuilder.Entity<BookSubgenre>().HasOne(bs => bs.Subgenre).WithMany(bu => bu.BookSubgenres).HasForeignKey(bs => bs.SubgenreId);
 
       modelBuilder.Entity<UserBook>().HasKey(x => new { x.UserId, x.BookId });
-      modelBuilder.Entity<UserBook>().HasOne(ub => ub.User).WithMany(us => us.UserBooks).HasForeignKey(ub => ub.BookId);
-      modelBuilder.Entity<UserBook>().HasOne(ub => ub.Book).WithMany(bu => bu.UserBooks).HasForeignKey(ub => ub.UserId);
+      modelBuilder.Entity<UserBook>().HasOne(ub => ub.User).WithMany(us => us.UserBooks).HasForeignKey(ub => ub.UserId);
+      modelBuilder.Entity<UserBook>().HasOne(ub => ub.Book).WithMany(bu => bu.UserBooks).HasForeignKey(ub => ub.BookId);
 
       base.OnModelCreating(modelBuilder);
     }
