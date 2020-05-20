@@ -73,27 +73,33 @@ namespace FantasyPortal.Controllers
       return RedirectToAction("BookList", "BookList");
     }
 
-    [HttpPost]
-    public ActionResult AddBook(string bookId)
+    public IActionResult AddBook(string bookId)
     {
-      if (!userRepository.CheckIfUserExists(_userManager.GetUserId(User).ToString()))
+      string userId = _userManager.GetUserId(User).ToString();
+      if (!userRepository.CheckIfUserExists(userId))
       {
-        userRepository.AddUser(_userManager.GetUserId(User).ToString());
+        userRepository.AddUser(userId);
       }
-      //string UserId = _userManager.GetUserId(User).ToString();
-      //donateRepository.Add(new DonateModel()
-      //{
-      //  DonationId = viewModel.DonationId,
-      //  FirstName = viewModel.FirstName,
-      //  LastName = viewModel.LastName,
-      //  CardNumber = viewModel.CardNumber,
-      //  Amount = viewModel.Amount,
-      //  UserId = UserId
-      //});
 
-      ViewBag.message = "Your donation was successful!";
+      userBookRepository.Add(new UserBook
+      {
+        UserId = userId,
+        BookId = bookId,
+        Progress = "To Read"
+      });
 
-      return View();
+      return RedirectToAction("BookList", "BookList");
+    }
+
+    public IActionResult RemoveBook(string userId, string bookId)
+    {
+      userBookRepository.Delete(new UserBook
+      {
+        UserId = userId,
+        BookId = bookId,
+      });
+
+      return RedirectToAction("BookList", "BookList");
     }
   } 
 }

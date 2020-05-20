@@ -12,6 +12,7 @@
     @userbook.Book.Name
     @userbook.Progress
     <a class="active" asp-area="" asp-controller="BookList" asp-action="BookListItemEdit" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Edit</a>
+    <a class="active" asp-area="" asp-controller="BookList" asp-action="RemoveBook" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Remove</a>
   </li>
   }
 </ol>
