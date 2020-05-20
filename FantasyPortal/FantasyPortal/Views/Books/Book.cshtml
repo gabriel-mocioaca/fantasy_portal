@@ -7,31 +7,38 @@
   ViewData["Title"] = Model.Name;
 }
 
-<h2>@Model.Name</h2>
+<div class="row">
+  <div class="col-md-5">
+    <h2>@Model.Name</h2>
+    @if (SignInManager.IsSignedIn(User))
+    {
+      <a class="btn-default" asp-controller="BookList" asp-action="AddBook" asp-route-bookId="@Model.BookId">Add to my list</a>
+    }
+    <img class="card-img-top" src="@("/images/" + Model.Image)" alt="Card image" style="width:100%; text-align:center" />
+  </div>
 
-@if (SignInManager.IsSignedIn(User))
-{
-  <a class="btn-default" asp-controller="BookList" asp-action="AddBook" asp-route-bookId="@Model.BookId">Add to my list</a>
-}
-<h3>Authors:</h3>
-<ul>
-  @foreach (var auth in Model.Authors)
-  {
-    <li>@auth.Name</li>
-  }
-</ul>
-<h3>Subgenres:</h3>
-<ul>
-  @foreach (var subg in Model.Subgenres)
-  {
-    <li><a asp-area="" asp-controller="Subgenres" asp-action="Subgenre" asp-route-id="@subg.SubgenreId">@subg.Name</a></li>
-  }
-</ul>
-<h3>Publishers:</h3>
-<ul>
-  @foreach (var publ in Model.Publishers)
-  {
-    <li><a asp-area="" asp-controller="Publishers" asp-action="Publisher" asp-route-id="@publ.PublisherId">@publ.Name</a></li>
-  }
-</ul>
-
+  <div class="col-md-3">
+    <h3> Authors : </h3>
+    <ul>
+      @foreach (var auth in Model.Authors)
+      {
+        <li>@auth.Name</li>
+      }
+    </ul>
+    <h3> Description :</h3> <p> @Model.Synopsis</p>
+    <h3>Subgenres:</h3>
+    <ul>
+      @foreach (var subg in Model.Subgenres)
+      {
+        <li><a asp-area="" asp-controller="Subgenres" asp-action="Subgenre" asp-route-id="@subg.SubgenreId">@subg.Name</a></li>
+      }
+    </ul>
+    <h3>Publishers:</h3>
+    <ul>
+      @foreach (var publ in Model.Publishers)
+      {
+        <li><a asp-area="" asp-controller="Publishers" asp-action="Publisher" asp-route-id="@publ.PublisherId">@publ.Name</a></li>
+      }
+    </ul>
+  </div>
+</div>

@@ -4,15 +4,23 @@
 }
 
 
-@foreach (var item in Model)
-{
-  <h2><a asp-area="" asp-controller="Books" asp-action="Book" asp-route-id="@item.BookId">@item.Name</a></h2>
-  <h3>Authors:</h3>
-  <ul>
-    @foreach (var auth in item.Authors)
-    {
-      <li>@auth.Name</li>
-    }
-  </ul>
 
-}
+<form>
+  <div class="row">
+    @foreach (var item in Model)
+    {
+      <div class="column3">
+        <div class="card">
+          <img class="card-img-top" src="@("/images/" + item.Image)" alt="@item.Name" style="width: 50%;">
+          <div class="container2">
+            <h4 class="card-title"><a asp-area="" asp-controller="Books" asp-action="Book" asp-route-id="@item.BookId">@item.Name</a></h4>
+            @foreach (var auth in item.Authors)
+            {
+              <l5><a asp-area="" asp-controller="Authors" asp-action="Author" asp-route-id="@auth.AuthorId">@auth.Name</a></l5>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</form>

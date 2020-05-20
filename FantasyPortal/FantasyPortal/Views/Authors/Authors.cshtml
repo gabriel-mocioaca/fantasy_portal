@@ -2,10 +2,19 @@
 @{
   ViewData["Title"] = "All Authors";
 }
-
-@foreach (var item in Model)
-{
-  <h2><a asp-area="" asp-controller="Authors" asp-action="Author" asp-route-id="@item.AuthorId">@item.Name</a></h2>
-  <h3>@item.Popularity</h3>
-
-}
+<form>
+  <div class="row">
+    @foreach (var item in Model)
+    {
+      <div class="column3">
+        <div class="card">
+          <img class="card-img-top" src="@("/images/" + item.Image)" alt="@item.Name" style="width: 50%;">
+          <div class="container2">
+            <h5 class="card-title"><a asp-area="" asp-controller="Authors" asp-action="Author" asp-route-id="@item.AuthorId">@item.Name</a></h5>
+            <p class="card-text">Followers: @item.Popularity</p>
+          </div>
+        </div>
+      </div>
+    }
+   </div>
+</form>

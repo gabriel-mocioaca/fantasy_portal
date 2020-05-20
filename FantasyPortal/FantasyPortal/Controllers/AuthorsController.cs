@@ -24,6 +24,7 @@ namespace FantasyPortal.Controllers
         AuthorId = s.AuthorId,
         Name = $"{s.Name}",
         Popularity = s.Popularity,
+        Image = s.Image,
       });
       return View(model);
     }

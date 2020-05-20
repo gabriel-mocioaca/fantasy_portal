@@ -1,19 +1,38 @@
 ﻿@model IEnumerable<UserBookViewModel>
 @{
-    ViewData["Title"] = "BookList";
+  ViewData["Title"] = "BookList";
 }
 
 <h2>My Book List</h2>
 
-<ol>
-  @foreach(var userbook in Model)
-  {
-  <li>
-    @userbook.Book.Name
-    @userbook.Progress
-    <a class="active" asp-area="" asp-controller="BookList" asp-action="BookListItemEdit" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Edit</a>
-    <a class="active" asp-area="" asp-controller="BookList" asp-action="RemoveBook" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Remove</a>
-  </li>
-  }
-</ol>
+<div class="d-flex justify-content-left align-items-left">
+  <div class="container px-md-3 px-sm-0">
+    <div class="row py-5">
+      <div class="col-md-12 mb-4 white-text text-left wow fadeIn">
+        <table class="table table-striped ">
+          <thead>
+            <tr id="center">
 
+              <th scope="col">Name</th>
+              <th scope="col">Progress</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var userbook in Model)
+            {
+              <tr>
+                <td>@userbook.Book.Name</td>
+                <td>@userbook.Progress</td>
+                <td><a class="active" asp-area="" asp-controller="BookList" asp-action="BookListItemEdit" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Edit</a></td>
+                <td><a class="active" asp-area="" asp-controller="BookList" asp-action="RemoveBook" asp-route-userId="@userbook.UserId" asp-route-bookId="@userbook.Book.BookId">Remove</a></td>
+              </tr>
+            }
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
